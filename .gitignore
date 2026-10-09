@@ -27,4 +27,4 @@ $RECYCLE.BIN/
 *.log
 npm-debug.log*
 *.tmp
-digibit/__*.html
+__*.html
