@@ -283,42 +283,17 @@ a {
 
 .brand {
     display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.brand-badge {
-    width: 52px;
-    height: 52px;
-    flex: 0 0 52px;
-    border-radius: 16px;
-    background: var(--main-color-one);
-    box-shadow: 0 5px 5px var(--main-color-one-shadow);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-family: var(--title-font);
-    font-weight: 900;
-    font-size: 21px;
-    letter-spacing: -1px;
-}
-
-.brand-text {
-    display: flex;
     flex-direction: column;
-    line-height: 1.35;
+    align-items: flex-start;
+    gap: 4px;
+    min-width: 0;
 }
 
-.brand-name {
-    font-family: var(--title-font);
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--main-color-one);
-}
-
-.brand-name span {
-    color: var(--main-color-three);
+.brand-logo {
+    display: block;
+    height: 48px;
+    width: auto;
+    max-width: 100%;
 }
 
 .brand-tagline {
@@ -851,12 +826,12 @@ a {
     }
 
     .brand {
-        flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
-    .brand-text {
-        align-items: center;
+    .brand-logo {
+        height: 38px;
     }
 
     .status-pill {
