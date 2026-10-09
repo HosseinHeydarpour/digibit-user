@@ -32,10 +32,21 @@
 
 ## انتشار روی GitHub Pages
 
-1. در مخزن: **Settings → Pages**
-2. زیر «Build and deployment» → Source: **Deploy from a branch**
-3. Branch: **`main`** و Folder: **`/(root)`** → **Save**
-4. چند دقیقه بعد سایت روی `https://<username>.github.io/digibit-user/` بالا می‌آید
+- **Source:** `Deploy from a branch` → Branch: **`main`** → Folder: **`/(root)`**
+- **دامنه اختصاصی:** `digibitstore.ir` (فایل `CNAME` در ریشه مخزن)
+
+> ⚠️ تا وقتی دامنه در ایرنیک ثبت نشود و DNS آن ست نشود، سایت از **هیچ آدرسی**
+> باز نمی‌شود؛ چون GitHub Pages آدرس `*.github.io` را هم به دامنه اختصاصی
+> ریدایرکت می‌کند.
+
+رکوردهای DNS لازم پس از ثبت دامنه:
+
+| نوع | نام هاست | مقدار |
+|---|---|---|
+| `A` | `@` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| `CNAME` | `www` | `hosseinheydarpour.github.io` |
+
+پس از ست شدن DNS و صدور گواهی، **Enforce HTTPS** را فعال کنید.
 
 ## لوگو و فاوآیکون
 
