@@ -1,6 +1,6 @@
 /* ==========================================================================
    دیجی‌بیت مارکت — صفحه «به‌زودی»
-   Countdown + launch-notification form.
+   Countdown to the launch moment.
    Vanilla JS, no dependencies. Target date is configured in index.html
    (window.DIGIBIT.target).
    ========================================================================== */
@@ -9,7 +9,6 @@
     'use strict';
 
     var config = window.DIGIBIT || {};
-    var STORAGE_KEY = 'digibit-coming-soon-subscribers';
 
     /* ---------------------------------------------------------------------
        Helpers
@@ -48,10 +47,6 @@
             text = toPersian(number);
         }
         return text.length < 2 ? toPersian('0') + text : text;
-    }
-
-    function padTwo(number) {
-        return number < 10 ? '0' + number : String(number);
     }
 
     /* ---------------------------------------------------------------------
@@ -155,86 +150,6 @@
     }
 
     /* ---------------------------------------------------------------------
-       Launch-notification form
-       --------------------------------------------------------------------- */
-
-    function readStoredSubscribers() {
-        try {
-            var raw = window.localStorage.getItem(STORAGE_KEY);
-            var parsed = raw ? JSON.parse(raw) : [];
-            return Array.isArray(parsed) ? parsed : [];
-        } catch (e) {
-            return [];
-        }
-    }
-
-    function storeSubscriber(email) {
-        try {
-            var subscribers = readStoredSubscribers();
-            if (subscribers.indexOf(email) === -1) {
-                subscribers.push(email);
-                window.localStorage.setItem(STORAGE_KEY, JSON.stringify(subscribers));
-            }
-            return true;
-        } catch (e) {
-            // Private mode / storage disabled — the visitor still gets feedback,
-            // the address is simply not queued locally.
-            return false;
-        }
-    }
-
-    function isValidEmail(value) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
-    }
-
-    function initNotifyForm() {
-        var form = document.getElementById('notify-form');
-        var input = document.getElementById('notify-email');
-        var message = document.getElementById('notify-message');
-
-        if (!form || !input || !message) {
-            return;
-        }
-
-        function setMessage(text, state) {
-            message.textContent = text;
-            message.classList.remove('is-success', 'is-error');
-            if (state) {
-                message.classList.add(state);
-            }
-        }
-
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            var email = input.value.trim();
-
-            if (email === '') {
-                setMessage('لطفاً ایمیل خود را وارد کنید.', 'is-error');
-                input.focus();
-                return;
-            }
-
-            if (!isValidEmail(email)) {
-                setMessage('ایمیل وارد‌شده معتبر نیست.', 'is-error');
-                input.focus();
-                return;
-            }
-
-            var stored = storeSubscriber(email);
-
-            setMessage(
-                stored
-                    ? 'ممنون! ایمیل شما ثبت شد؛ لحظه افتتاح خبرتان می‌کنیم.'
-                    : 'ممنون! ایمیل شما ثبت شد.',
-                'is-success'
-            );
-
-            form.reset();
-        });
-    }
-
-    /* ---------------------------------------------------------------------
        Footer year (current Jalali year via the browser's Persian calendar)
        --------------------------------------------------------------------- */
 
@@ -265,7 +180,6 @@
 
     function boot() {
         initCountdown();
-        initNotifyForm();
         initFooterYear();
     }
 
@@ -274,10 +188,4 @@
     } else {
         boot();
     }
-
-    // Exposed for debugging in the console.
-    window.DigibitComingSoon = {
-        storageKey: STORAGE_KEY,
-        subscribers: readStoredSubscribers
-    };
 })();

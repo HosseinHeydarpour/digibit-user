@@ -479,74 +479,9 @@ a {
 .countdown-label {
   display: block;
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--text-muted);
-}
-
-/* ==========================================================================
-   Notify form
-   ========================================================================== */
-
-.notify {
-  margin-top: 46px;
-}
-
-.notify-title {
-  font-weight: bold;
-  font-size: 15px;
-  color: rgb(255 255 255 / 92%);
-  margin-bottom: 16px;
-}
-
-.notify-form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  max-width: 520px;
-  margin-inline: auto;
-}
-
-.notify-input {
-  flex: 1 1 auto;
-  min-width: 0;
-  background: #fff;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  padding: 15px 20px;
-  font-family: var(--font-site);
-  font-size: 14px;
-  color: var(--color-site);
-  box-shadow: var(--shadow-md);
-  transition: 200ms;
-}
-
-.notify-input::placeholder {
-  color: var(--text-muted-two);
-}
-
-.notify-input:focus {
-  outline: none;
-  border-color: var(--main-color-two);
-}
-
-.notify-form .btn {
-  flex: 0 0 auto;
-}
-
-.notify-message {
-  min-height: 22px;
-  margin-top: 14px;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.notify-message.is-success {
-  color: var(--main-color-two);
-}
-
-.notify-message.is-error {
-  color: #ff8a7e;
 }
 
 /* ==========================================================================
@@ -744,8 +679,7 @@ a {
    Launch state (countdown finished)
    ========================================================================== */
 
-.hero.is-launched .countdown,
-.hero.is-launched .notify {
+.hero.is-launched .countdown {
   display: none;
 }
 
@@ -781,8 +715,7 @@ a {
 .hero-eyebrow,
 .hero-title,
 .hero-description,
-.countdown,
-.notify {
+.countdown {
   animation: rise 0.55s ease-out both;
 }
 
@@ -796,10 +729,6 @@ a {
 
 .countdown {
   animation-delay: 0.18s;
-}
-
-.notify {
-  animation-delay: 0.24s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -877,14 +806,6 @@ a {
 
   .countdown-value {
     font-size: 30px;
-  }
-
-  .notify-form {
-    flex-direction: column;
-  }
-
-  .notify-form .btn {
-    width: 100%;
   }
 
   .feature-item {
