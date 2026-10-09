@@ -32,3 +32,6 @@ __*.html
 # Original logo master (1.7 MB) - optimised PNGs are committed instead
 assets/img/logo.jfif
 assets/img/favicon-source.png
+
+# Build artefacts: zip archives made for manual upload, not source
+*.zip
