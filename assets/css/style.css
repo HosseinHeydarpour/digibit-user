@@ -675,6 +675,24 @@ a {
   color: var(--main-color-three);
 }
 
+/* enamad trust seal — left edge of the footer bar */
+.enamad-seal {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.enamad-seal img {
+  display: block;
+  width: 100px;
+  height: auto;
+}
+
+.enamad-seal:hover {
+  opacity: 0.85;
+}
+
 /* ==========================================================================
    Launch state (countdown finished)
    ========================================================================== */
