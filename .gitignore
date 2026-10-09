@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------------------
+# Design reference only — must never be committed.
+# This folder holds the "شاهان" template used as a visual reference for the
+# coming-soon page. It is not part of the website and is not deployed.
+# ---------------------------------------------------------------------------
+website-temp/
+
+# ---------------------------------------------------------------------------
+# OS / editor noise
+# ---------------------------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+*.swp
+*~
+
+.vscode/
+.idea/
+*.user
+*.suo
+
+# ---------------------------------------------------------------------------
+# Logs / temporary files
+# ---------------------------------------------------------------------------
+*.log
+npm-debug.log*
+*.tmp
+digibit/__*.html
